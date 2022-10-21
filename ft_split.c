@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 00:30:53 by yajallal          #+#    #+#             */
-/*   Updated: 2022/10/17 00:28:10 by yajallal         ###   ########.fr       */
+/*   Updated: 2022/10/17 21:58:36 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ static	size_t	ft_nbword(char *s, char c)
 
 	i = 0;
 	nb = 0;
-	while (s[i] == c && s[i] != '\0')
-		i++;
 	while (s[i])
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-				nb++;
-		i++;
+		while (s[i] == c)
+			i++;
+		if (s[i])
+			nb++;
+		while (s[i] != c && s[i])
+			i++;
 	}
 	return (nb);
 }
